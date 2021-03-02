@@ -11,7 +11,9 @@
             </v-toolbar-items>
             <v-spacer></v-spacer>
             <router-link to="/favorites">
-                <v-icon large>loyalty</v-icon>
+              <v-badge color="grey lighten-1" overlap :content="favorites.length" :value="favorites.length">
+                <v-icon large>loyalty</v-icon> 
+              </v-badge>
             </router-link>
           </v-toolbar>
           <v-btn @click="themeSwitched=!themeSwitched">Switch theme</v-btn>
@@ -26,6 +28,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -40,6 +43,12 @@ export default {
     return  {
        themeSwitched: false,
     }
+  }, 
+  computed: {
+    // favorites () {
+    //   return this.$store.state.favorites;
+    // }
+    ...mapState (['favorites'])
   }
 };
 </script>

@@ -10,9 +10,10 @@
                 </v-list-item-avatar>
                 <v-list-item-content>{{dog.name}}</v-list-item-content>
                 <v-list-item-action>
-                    <v-icon>delete</v-icon>
+                    <v-icon @click="removeFavorite">delete</v-icon>
                 </v-list-item-action>
-            </v-list-item>              
+            </v-list-item> 
+            <v-btn to="/form">Adopt</v-btn>         
           </div>
 
       </v-list>
@@ -25,8 +26,10 @@ export default {
         favorites() {
             return this.$store.state.favorites;
         }
+    }, 
+    methods: {
+        removeFavorite(){}
     }
-
 }
 </script>
 
